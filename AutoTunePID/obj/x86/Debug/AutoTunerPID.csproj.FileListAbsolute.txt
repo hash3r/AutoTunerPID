@@ -1,0 +1,8 @@
+C:\Documents and Settings\vladimirg.SATURN-DATA\my documents\visual studio 2010\Projects\AutoTunePID\AutoTunePID\bin\Debug\AutoTunerPID.exe
+C:\Documents and Settings\vladimirg.SATURN-DATA\my documents\visual studio 2010\Projects\AutoTunePID\AutoTunePID\bin\Debug\AutoTunerPID.pdb
+C:\Documents and Settings\vladimirg.SATURN-DATA\my documents\visual studio 2010\Projects\AutoTunePID\AutoTunePID\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\vladimirg.SATURN-DATA\my documents\visual studio 2010\Projects\AutoTunePID\AutoTunePID\obj\x86\Debug\nAutoTunerPID.Properties.Resources.resources
+C:\Documents and Settings\vladimirg.SATURN-DATA\my documents\visual studio 2010\Projects\AutoTunePID\AutoTunePID\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\vladimirg.SATURN-DATA\my documents\visual studio 2010\Projects\AutoTunePID\AutoTunePID\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\vladimirg.SATURN-DATA\my documents\visual studio 2010\Projects\AutoTunePID\AutoTunePID\obj\x86\Debug\AutoTunerPID.exe
+C:\Documents and Settings\vladimirg.SATURN-DATA\my documents\visual studio 2010\Projects\AutoTunePID\AutoTunePID\obj\x86\Debug\AutoTunerPID.pdb

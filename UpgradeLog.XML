@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="AutoTunePID">
+</Property><Property Name="Solution File" Value="C:\Documents and Settings\vladimirg.SATURN-DATA\my documents\visual studio 2010\Projects\AutoTunePID\AutoTunePID.sln">
+</Property><Property Name="Date" Value="4 октября 2011 г.">
+</Property><Property Name="Time" Value="15:49:48">
+</Property></Properties><Event ErrorLevel="0" Project="PID_Example" Source="..\AutoTunePIDVIew\PID_Example.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="PID_Example" Source="..\AutoTunePIDVIew\PID_Example.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="PID_Example" Source="..\AutoTunePIDVIew\PID_Example.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
