@@ -333,7 +333,7 @@
           this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
           this.pictureBox1.Location = new System.Drawing.Point(310, 58);
           this.pictureBox1.Name = "pictureBox1";
-          this.pictureBox1.Size = new System.Drawing.Size(264, 309);
+          this.pictureBox1.Size = new System.Drawing.Size(597, 309);
           this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
           this.pictureBox1.TabIndex = 27;
           this.pictureBox1.TabStop = false;
@@ -344,7 +344,7 @@
           this.label11.AutoSize = true;
           this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
           this.label11.ForeColor = System.Drawing.Color.Green;
-          this.label11.Location = new System.Drawing.Point(331, 39);
+          this.label11.Location = new System.Drawing.Point(664, 39);
           this.label11.Name = "label11";
           this.label11.Size = new System.Drawing.Size(69, 13);
           this.label11.TabIndex = 28;
@@ -355,7 +355,7 @@
           this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
           this.label12.AutoSize = true;
           this.label12.ForeColor = System.Drawing.Color.Blue;
-          this.label12.Location = new System.Drawing.Point(406, 39);
+          this.label12.Location = new System.Drawing.Point(739, 39);
           this.label12.Name = "label12";
           this.label12.Size = new System.Drawing.Size(98, 13);
           this.label12.TabIndex = 29;
@@ -366,7 +366,7 @@
           this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
           this.label13.AutoSize = true;
           this.label13.ForeColor = System.Drawing.Color.Red;
-          this.label13.Location = new System.Drawing.Point(510, 39);
+          this.label13.Location = new System.Drawing.Point(843, 39);
           this.label13.Name = "label13";
           this.label13.Size = new System.Drawing.Size(64, 13);
           this.label13.TabIndex = 30;
@@ -375,7 +375,7 @@
           // btnStart
           // 
           this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-          this.btnStart.Location = new System.Drawing.Point(449, 4);
+          this.btnStart.Location = new System.Drawing.Point(782, 4);
           this.btnStart.Name = "btnStart";
           this.btnStart.Size = new System.Drawing.Size(125, 23);
           this.btnStart.TabIndex = 31;
@@ -409,7 +409,7 @@
           // 
           this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
           this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-          this.ClientSize = new System.Drawing.Size(586, 379);
+          this.ClientSize = new System.Drawing.Size(919, 379);
           this.Controls.Add(this.btnStartAutoTunerPID);
           this.Controls.Add(this.btnStart);
           this.Controls.Add(this.label13);

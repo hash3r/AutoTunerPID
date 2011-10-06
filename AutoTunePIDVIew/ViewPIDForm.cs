@@ -22,6 +22,7 @@ namespace ViewPID
     public partial class ViewPIDForm : Form
     {
         private ConvPID conv;
+        Object obPV;  
 
         private double pSetpoint = 0;
         private double pPV = 0;  // actual possition (Process Value)
@@ -53,6 +54,7 @@ namespace ViewPID
             get { return pPV; }
             set {
                     pPV = value;
+                    obPV = value;
                     // place limits on the measured value
                     if (pPV < 0)
                         pPV = 0;
@@ -354,7 +356,8 @@ namespace ViewPID
 
         private void StartAutoTunerPID(object sender, MouseEventArgs e)
         {
-          conv = new ConvPID(ref pPV);
+         // obPV = pPV;
+          conv = new ConvPID(ref obPV);
           setpoint += 190;
         }
 

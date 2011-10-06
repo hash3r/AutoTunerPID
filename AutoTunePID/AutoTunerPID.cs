@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
+using System.Object;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -365,7 +366,7 @@ public class AutoTunerPID
                  N,  //the derivative part is made proper by adding a pole with time constant proportional to Td via this parameter (derivative filter)
                  Ms, //magnitude margin 
                  ampStep; //amplitude of the step
-  private object procValue;
+  private Object procValue;
 
   private List<double> respSamples;
   private List<double> lastRespSamples;
@@ -375,11 +376,13 @@ public class AutoTunerPID
 
 
 
-  public AutoTunerPID(ref double aProcValue)
+  public AutoTunerPID(ref Object aProcValue)
   {
-    procValue = aProcValue;
+    //procValue = new object();
+    //procValue = aProcValue;
 
     autoTuningInThread = new Thread(StartAutoTuning);
+    autoTuningInThread.Name = "StartAutoTuning()";
     
     isRun = true;
   }
@@ -467,7 +470,7 @@ public class AutoTunerPID
     Console.WriteLine(tau);
   }
 
-  protected void StartAutoTuning(/*ref double curValue, double setPoint, double step*/)
+  protected void StartAutoTuning(Object aProcValue /*ref double curValue, double setPoint, double step*/)
   {
     respSamples     = new List<double>();
     lastRespSamples = new List<double>();
@@ -479,9 +482,9 @@ public class AutoTunerPID
 
     while (isRun)
     {
-      Thread.Sleep(400);  //curValue update   
+      Thread.Sleep(200);  //procValue update   
       Console.WriteLine("What?");
-      respSamples.Add((double)procValue);  //qf
+      respSamples.Add((double)aProcValue);  //qf
 
       rsc = (int)(respSamples.Count / 10);
 
@@ -496,6 +499,7 @@ public class AutoTunerPID
         double t1 = lastRespSamples.Max() - lastRespSamples.Min(); //qf
         double t2 = stepSteadyThr * (respSamples.Max() - respSamples.Min()); //qf
         double t3 = t1 -t2;
+
         if (lastRespSamples.Max()-lastRespSamples.Min() < stepSteadyThr*(respSamples.Max()-respSamples.Min()))
           steadyState = true;
 
@@ -517,11 +521,11 @@ public class ConvPID: AutoTunerPID
 {
   private PIDSettings settings;
   
-  public ConvPID(ref double procValue): base(ref procValue) 
+  public ConvPID(ref Object aProcValue): base(ref aProcValue) 
   {
     settings = new PIDSettings(/*external data*/);
 
-    this.autoTuningInThread.Start(); 
+    this.autoTuningInThread.Start(aProcValue); 
   }
  
 }
@@ -577,15 +581,13 @@ namespace nAutoTunerPID
     static void Main(string[] args)
     {
 
-      double t = 1;
 
       //ConvPID conv = new ConvPID(ref t /*external data*/);
 
-      t = 2;
-
+ 
             
       Console.WriteLine("main");
-      t = Console.Read();
+     
       Console.Read();
 
     }
