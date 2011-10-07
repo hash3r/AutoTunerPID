@@ -22,7 +22,7 @@ namespace ViewPID
     public partial class ViewPIDForm : Form
     {
         private ConvPID conv;
-        Object obPV;  
+        object obPV;  
 
         private double pSetpoint = 0;
         private double pPV = 0;  // actual possition (Process Value)
