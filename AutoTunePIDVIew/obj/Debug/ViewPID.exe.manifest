@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AutoTunerPID.exe" size="9728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AutoTunerPID.exe" size="10240">
       <assemblyIdentity name="AutoTunerPID" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yuluJvhs6occ37MgMD8VGmkRViU=</dsig:DigestValue>
+        <dsig:DigestValue>Pm2XMCWITue9aR3UvF9XxkGH1VU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>0aRgBOCC1MSOo7wR5QttOjjls/0=</dsig:DigestValue>
+        <dsig:DigestValue>1l4s5eSTNTh/W2Iextj9QjLIyCI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -8,9 +8,7 @@ C:\Documents and Settings\vladimirg.SATURN-DATA\My Documents\Visual Studio 2010\
 C:\Documents and Settings\vladimirg.SATURN-DATA\My Documents\Visual Studio 2010\Projects\AutoTunePID\AutoTunePIDVIew\bin\Debug\AutoTunerPID.pdb
 C:\Documents and Settings\vladimirg.SATURN-DATA\My Documents\Visual Studio 2010\Projects\AutoTunePID\AutoTunePIDVIew\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\vladimirg.SATURN-DATA\My Documents\Visual Studio 2010\Projects\AutoTunePID\AutoTunePIDVIew\obj\Debug\ViewPID.Properties.Resources.resources
-C:\Documents and Settings\vladimirg.SATURN-DATA\My Documents\Visual Studio 2010\Projects\AutoTunePID\AutoTunePIDVIew\obj\Debug\GenerateResource-ResGen.read.1.tlog
 C:\Documents and Settings\vladimirg.SATURN-DATA\My Documents\Visual Studio 2010\Projects\AutoTunePID\AutoTunePIDVIew\obj\Debug\GenerateResource.read.1.tlog
-C:\Documents and Settings\vladimirg.SATURN-DATA\My Documents\Visual Studio 2010\Projects\AutoTunePID\AutoTunePIDVIew\obj\Debug\GenerateResource-ResGen.write.1.tlog
 C:\Documents and Settings\vladimirg.SATURN-DATA\My Documents\Visual Studio 2010\Projects\AutoTunePID\AutoTunePIDVIew\obj\Debug\GenerateResource.write.1.tlog
 C:\Documents and Settings\vladimirg.SATURN-DATA\My Documents\Visual Studio 2010\Projects\AutoTunePID\AutoTunePIDVIew\obj\Debug\ViewPID.exe.manifest
 C:\Documents and Settings\vladimirg.SATURN-DATA\My Documents\Visual Studio 2010\Projects\AutoTunePID\AutoTunePIDVIew\obj\Debug\ViewPID.application

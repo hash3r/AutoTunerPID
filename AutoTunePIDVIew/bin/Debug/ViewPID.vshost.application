@@ -7,14 +7,14 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="ViewPID.exe.manifest" size="4049">
+    <dependentAssembly dependencyType="install" codebase="ViewPID.exe.manifest" size="4050">
       <assemblyIdentity name="ViewPID.exe" version="1.0.0.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>v41u6A7uaFnj1ow0xLaTQLK7aHg=</dsig:DigestValue>
+        <dsig:DigestValue>H3WrZWO/fvKUReM2WrRjWZt6L68=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -19,10 +19,10 @@ using System.Windows.Forms;
 
 namespace ViewPID
 {
-    public partial class ViewPIDForm : Form
+    public unsafe partial class ViewPIDForm : Form
     {
         private ConvPID conv;
-        object obPV;  
+        private double  procValue;
 
         private double pSetpoint = 0;
         private double pPV = 0;  // actual possition (Process Value)
@@ -54,7 +54,7 @@ namespace ViewPID
             get { return pPV; }
             set {
                     pPV = value;
-                    obPV = value;
+                    procValue = value;
                     // place limits on the measured value
                     if (pPV < 0)
                         pPV = 0;
@@ -356,8 +356,11 @@ namespace ViewPID
 
         private void StartAutoTunerPID(object sender, MouseEventArgs e)
         {
-         // obPV = pPV;
-          conv = new ConvPID(ref obPV);
+         
+          fixed (double* pprocValue = &(this.procValue))
+          {
+            conv = new ConvPID(pprocValue);
+          }          
           setpoint += 190;
         }
 

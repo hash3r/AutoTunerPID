@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
-//using System.Object;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -113,7 +112,7 @@ public class PIDSettings
 }
 
 
-public class AutoTunerPID
+public unsafe class AutoTunerPID
 {
   private double Ts, //sample time
                  m,  //process gain
@@ -128,7 +127,8 @@ public class AutoTunerPID
                  N,  //the derivative part is made proper by adding a pole with time constant proportional to Td via this parameter (derivative filter)
                  Ms, //magnitude margin 
                  ampStep; //amplitude of the step
-  private double procValue;
+
+  private double * procValue;
 
   private List<double> respSamples;
   private List<double> lastRespSamples;
@@ -137,11 +137,39 @@ public class AutoTunerPID
   protected Thread  autoTuningInThread;
 
 
+/*
 
-  public AutoTunerPID(ref object aProcValue)
+  internal class ThreadWrapper
   {
-    //procValue = new object();
-    //procValue = aProcValue;
+
+    internal ThreadWrapper(/ *..* /)
+    {
+      / * pass whatever needed from out side * /
+      thread = new Thread(Body); //don't tell my it is illegal!
+    } //ThreadWrapper
+
+    void Body()
+    {
+      if (this.SomeByRefParameter == null) //can read
+        this.SomeByRefParameter = new System.Text.StringBuilder(); //can modify
+      //why? because this member is non-static, "this" parameter is used
+      //...
+    } //Body
+
+    object SomeByRefParameter;
+    Thread thread;
+
+  } //class ThreadWrapper
+*/
+
+
+
+  public AutoTunerPID(double * aProcValue)
+  {
+    ampStep = 100; //qf
+    Ts = 0.01;
+
+    procValue = aProcValue;
 
     autoTuningInThread = new Thread(StartAutoTuning);
     autoTuningInThread.Name = "StartAutoTuning()";
@@ -149,7 +177,7 @@ public class AutoTunerPID
     isRun = true;
   }
 
-  private void IdAreas()  //Identification of a FOPDT model using the method of the areas
+  private void IdAreas()   //Identification of a FOPDT model using the method of the areas
   {
     double firstResSam = respSamples.First(),
             lastResSam = respSamples.Last();
@@ -167,13 +195,17 @@ public class AutoTunerPID
     foreach (double elem in respSamples)
       upperArea += (lastResSam - elem) * Ts;                 //upper area
 
-    double it0 = Math.Round( upperArea / Math.Abs(m) / Ts ); //compute the index of the vector (not the value of t0)
+    double it0 = Math.Round( upperArea / Math.Abs(m) /*/ Ts*0.01 */); //compute the index of the vector (not the value of t0)
 
-    for (int i = 0; i <= it0; i++)
+    if (it0 < 0 || it0 > respSamples.Count)
+      return;
+
+    for (int i = 0; i < it0; i++)
       lowerArea += (respSamples[i] - firstResSam) * Ts;  //lower area
 
     //compute model params
     T = Math.Exp(1) * lowerArea / Math.Abs(m);
+    L = upperArea - Math.Exp(1) * lowerArea / Math.Abs(m);
     L = Math.Max((upperArea - Math.Exp(1) * lowerArea / Math.Abs(m)), 0);
   }
 
@@ -232,23 +264,22 @@ public class AutoTunerPID
     Console.WriteLine(tau);
   }
 
-  protected void StartAutoTuning(object aProcValue /*ref double curValue, double setPoint, double step*/)
+  protected void StartAutoTuning()
   {
-    
     respSamples     = new List<double>();
     lastRespSamples = new List<double>();
 
-    int    rsc;                   //responseSamplesCount / 10
+    int    rsc;                   //respSamplesCount / 10
     bool   steadyState = false;
     
-    double stepSteadyThr = 0.05;  //threshold on derivative to consider the step response to a steady state
-    double procValue     = (double)aProcValue;
-
+    double stepSteadyThr = 0.01;  //threshold on derivative to consider the step response to a steady state
+   
+ 
     while (isRun)
     {
       Thread.Sleep(200);  //procValue update   
-      Console.WriteLine("What?");
-      respSamples.Add(procValue);  //qf
+
+      respSamples.Add(*procValue);  //qf
 
       rsc = (int)(respSamples.Count / 10);
 
@@ -262,7 +293,7 @@ public class AutoTunerPID
         //Console.WriteLine(lastRespSamples.Max() - lastRespSamples.Min() - stepSteadyThr * (respSamples.Max() - respSamples.Min()) ) ;
         double t1 = lastRespSamples.Max() - lastRespSamples.Min(); //qf
         double t2 = stepSteadyThr * (respSamples.Max() - respSamples.Min()); //qf
-        double t3 = t1 -t2;
+        double t3 = t1 - t2;
 
         if (lastRespSamples.Max()-lastRespSamples.Min() < stepSteadyThr*(respSamples.Max()-respSamples.Min()))
           steadyState = true;
@@ -276,20 +307,19 @@ public class AutoTunerPID
         }
       }
     }
-      
-
   }
 }
 
-public class ConvPID: AutoTunerPID
+public unsafe class ConvPID: AutoTunerPID
 {
   private PIDSettings settings;
-  
-  public ConvPID(ref object aProcValue): base(ref aProcValue) 
+
+  public ConvPID(double * aProcValue)
+    : base(aProcValue) 
   {
     settings = new PIDSettings(/*external data*/);
 
-    this.autoTuningInThread.Start(aProcValue); 
+    this.autoTuningInThread.Start(); 
   }
  
 }
